@@ -1,0 +1,71 @@
+/* ============================================================
+   AETHER ARENA — Icon utilities
+   White-on-transparent PNGs used as CSS masks → recolor with
+   `color`/`background`. Usage:
+     <i class="ic ic-home"></i>                  (inherits color)
+     <i class="ic ic-battle" style="--sz:28px;color:var(--gold)"></i>
+   ============================================================ */
+.ic{
+  display:inline-block;
+  width:var(--sz,24px); height:var(--sz,24px);
+  background-color: currentColor;
+  -webkit-mask-repeat:no-repeat; mask-repeat:no-repeat;
+  -webkit-mask-position:center; mask-position:center;
+  -webkit-mask-size:contain;    mask-size:contain;
+  flex:0 0 auto;
+}
+/* ---- general set ---- */
+.ic-home{-webkit-mask-image:url(icons/general/00.png);mask-image:url(icons/general/00.png)}
+.ic-settings{-webkit-mask-image:url(icons/general/01.png);mask-image:url(icons/general/01.png)}
+.ic-back{-webkit-mask-image:url(icons/general/02.png);mask-image:url(icons/general/02.png)}
+.ic-doc{-webkit-mask-image:url(icons/general/03.png);mask-image:url(icons/general/03.png)}
+.ic-promote{-webkit-mask-image:url(icons/general/04.png);mask-image:url(icons/general/04.png)}
+.ic-menu{-webkit-mask-image:url(icons/general/05.png);mask-image:url(icons/general/05.png)}
+.ic-swords{-webkit-mask-image:url(icons/general/06.png);mask-image:url(icons/general/06.png)}
+.ic-calendar{-webkit-mask-image:url(icons/general/07.png);mask-image:url(icons/general/07.png)}
+.ic-filter{-webkit-mask-image:url(icons/general/08.png);mask-image:url(icons/general/08.png)}
+.ic-recycle{-webkit-mask-image:url(icons/general/09.png);mask-image:url(icons/general/09.png)}
+.ic-megaphone{-webkit-mask-image:url(icons/general/10.png);mask-image:url(icons/general/10.png)}
+.ic-prev{-webkit-mask-image:url(icons/general/11.png);mask-image:url(icons/general/11.png)}
+.ic-next{-webkit-mask-image:url(icons/general/12.png);mask-image:url(icons/general/12.png)}
+.ic-eye{-webkit-mask-image:url(icons/general/13.png);mask-image:url(icons/general/13.png)}
+.ic-eye-off{-webkit-mask-image:url(icons/general/14.png);mask-image:url(icons/general/14.png)}
+.ic-mail{-webkit-mask-image:url(icons/general/15.png);mask-image:url(icons/general/15.png)}
+.ic-gift{-webkit-mask-image:url(icons/general/16.png);mask-image:url(icons/general/16.png)}
+.ic-gift-open{-webkit-mask-image:url(icons/general/17.png);mask-image:url(icons/general/17.png)}
+.ic-plus{-webkit-mask-image:url(icons/general/18.png);mask-image:url(icons/general/18.png)}
+.ic-close{-webkit-mask-image:url(icons/general/19.png);mask-image:url(icons/general/19.png)}
+.ic-edit{-webkit-mask-image:url(icons/general/20.png);mask-image:url(icons/general/20.png)}
+.ic-refresh{-webkit-mask-image:url(icons/general/21.png);mask-image:url(icons/general/21.png)}
+.ic-search{-webkit-mask-image:url(icons/general/22.png);mask-image:url(icons/general/22.png)}
+.ic-skip{-webkit-mask-image:url(icons/general/23.png);mask-image:url(icons/general/23.png)}
+.ic-search2{-webkit-mask-image:url(icons/general/24.png);mask-image:url(icons/general/24.png)}
+.ic-helmet{-webkit-mask-image:url(icons/general/25.png);mask-image:url(icons/general/25.png)}
+.ic-armor{-webkit-mask-image:url(icons/general/26.png);mask-image:url(icons/general/26.png)}
+.ic-boots{-webkit-mask-image:url(icons/general/27.png);mask-image:url(icons/general/27.png)}
+.ic-sword{-webkit-mask-image:url(icons/general/28.png);mask-image:url(icons/general/28.png)}
+.ic-medal{-webkit-mask-image:url(icons/general/29.png);mask-image:url(icons/general/29.png)}
+.ic-shop{-webkit-mask-image:url(icons/general/30.png);mask-image:url(icons/general/30.png)}
+.ic-info{-webkit-mask-image:url(icons/general/31.png);mask-image:url(icons/general/31.png)}
+.ic-gem{-webkit-mask-image:url(icons/general/32.png);mask-image:url(icons/general/32.png)}
+.ic-sync{-webkit-mask-image:url(icons/general/33.png);mask-image:url(icons/general/33.png)}
+.ic-editbox{-webkit-mask-image:url(icons/general/34.png);mask-image:url(icons/general/34.png)}
+.ic-portal{-webkit-mask-image:url(icons/general/35.png);mask-image:url(icons/general/35.png)}
+.ic-question{-webkit-mask-image:url(icons/general/36.png);mask-image:url(icons/general/36.png)}
+.ic-lock{-webkit-mask-image:url(icons/general/37.png);mask-image:url(icons/general/37.png)}
+.ic-check{-webkit-mask-image:url(icons/general/38.png);mask-image:url(icons/general/38.png)}
+/* ---- stat set ---- */
+.ic-hp{-webkit-mask-image:url(icons/stat/00.png);mask-image:url(icons/stat/00.png)}
+.ic-hp-pct{-webkit-mask-image:url(icons/stat/01.png);mask-image:url(icons/stat/01.png)}
+.ic-atk{-webkit-mask-image:url(icons/stat/02.png);mask-image:url(icons/stat/02.png)}
+.ic-atk-pct{-webkit-mask-image:url(icons/stat/03.png);mask-image:url(icons/stat/03.png)}
+.ic-matk{-webkit-mask-image:url(icons/stat/04.png);mask-image:url(icons/stat/04.png)}
+.ic-matk-pct{-webkit-mask-image:url(icons/stat/05.png);mask-image:url(icons/stat/05.png)}
+.ic-def{-webkit-mask-image:url(icons/stat/06.png);mask-image:url(icons/stat/06.png)}
+.ic-def-pct{-webkit-mask-image:url(icons/stat/07.png);mask-image:url(icons/stat/07.png)}
+.ic-mdef{-webkit-mask-image:url(icons/stat/08.png);mask-image:url(icons/stat/08.png)}
+.ic-mdef-pct{-webkit-mask-image:url(icons/stat/09.png);mask-image:url(icons/stat/09.png)}
+.ic-crit{-webkit-mask-image:url(icons/stat/10.png);mask-image:url(icons/stat/10.png)}
+.ic-speed{-webkit-mask-image:url(icons/stat/11.png);mask-image:url(icons/stat/11.png)}
+.ic-fire{-webkit-mask-image:url(icons/stat/12.png);mask-image:url(icons/stat/12.png)}
+.ic-fire-burst{-webkit-mask-image:url(icons/stat/13.png);mask-image:url(icons/stat/13.png)}

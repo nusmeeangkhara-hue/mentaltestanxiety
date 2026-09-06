@@ -1,0 +1,222 @@
+{
+  "plugins": [
+    "react",
+    "import"
+  ],
+  "rules": {
+    "react/forbid-elements": [
+      "warn",
+      {
+        "forbid": []
+      }
+    ],
+    "no-restricted-imports": [
+      "warn",
+      {
+        "patterns": [
+          {
+            "group": [
+              "ui_kits/pvp_ranking/**"
+            ],
+            "message": "Import design-system components from 'index.js', not component internals."
+          }
+        ]
+      }
+    ],
+    "no-restricted-syntax": [
+      "warn",
+      {
+        "selector": "Literal[value=/#[0-9a-fA-F]{3,8}\\b/]",
+        "message": "Raw hex color — use a design-system color token via var()."
+      },
+      {
+        "selector": "Literal[value=/\\b\\d+px\\b/]",
+        "message": "Raw px value — use a design-system spacing token via var()."
+      },
+      {
+        "selector": "Literal[value=/font-family\\s*:\\s*(?!['\\\"]?(?:Mali))/i]",
+        "message": "Font not provided by the design system. Available: Mali."
+      }
+    ]
+  },
+  "overrides": [
+    {
+      "files": [
+        "**/index.js"
+      ],
+      "rules": {
+        "no-restricted-imports": "off"
+      }
+    }
+  ],
+  "x-omelette": {
+    "components": {},
+    "tokens": [
+      "--bg-sky",
+      "--crystal",
+      "--crystal-glow",
+      "--crystal-hi",
+      "--crystal-lo",
+      "--font-display",
+      "--font-ui",
+      "--glow-crystal",
+      "--gold",
+      "--gold-deep",
+      "--gold-hi",
+      "--gold-shadow",
+      "--grad-crystal",
+      "--grad-gold",
+      "--grad-gold-rim",
+      "--hairline",
+      "--hairline-strong",
+      "--indigo",
+      "--indigo-deep",
+      "--indigo-info",
+      "--indigo-soft",
+      "--info",
+      "--ink-1",
+      "--ink-2",
+      "--ink-3",
+      "--ink-on-dark",
+      "--ink-on-dark-2",
+      "--ink-on-gold",
+      "--loss",
+      "--r-lg",
+      "--r-md",
+      "--r-pill",
+      "--r-sm",
+      "--r-xl",
+      "--r-xs",
+      "--row-highlight",
+      "--s-1",
+      "--s-10",
+      "--s-12",
+      "--s-2",
+      "--s-3",
+      "--s-4",
+      "--s-5",
+      "--s-6",
+      "--s-8",
+      "--sh-card",
+      "--sh-float",
+      "--sh-gold",
+      "--sh-inset",
+      "--sh-soft",
+      "--sky-bottom",
+      "--sky-glow",
+      "--sky-haze",
+      "--sky-mid",
+      "--sky-top",
+      "--sky-upper",
+      "--star-off",
+      "--star-on",
+      "--surface",
+      "--surface-2",
+      "--surface-cream",
+      "--surface-tint",
+      "--tier-bronze-1",
+      "--tier-bronze-2",
+      "--tier-champ-1",
+      "--tier-champ-2",
+      "--tier-diamond-1",
+      "--tier-diamond-2",
+      "--tier-gold-1",
+      "--tier-gold-2",
+      "--tier-grand-1",
+      "--tier-grand-2",
+      "--tier-master-1",
+      "--tier-master-2",
+      "--tier-plat-1",
+      "--tier-plat-2",
+      "--tier-silver-1",
+      "--tier-silver-2",
+      "--warn",
+      "--win"
+    ],
+    "tokenKinds": {
+      "--sky-top": "color",
+      "--sky-upper": "color",
+      "--sky-mid": "color",
+      "--sky-glow": "color",
+      "--sky-bottom": "color",
+      "--sky-haze": "color",
+      "--bg-sky": "color",
+      "--surface": "color",
+      "--surface-2": "color",
+      "--surface-tint": "color",
+      "--surface-cream": "color",
+      "--row-highlight": "color",
+      "--hairline": "color",
+      "--hairline-strong": "color",
+      "--ink-1": "color",
+      "--ink-2": "color",
+      "--ink-3": "color",
+      "--ink-on-gold": "color",
+      "--ink-on-dark": "color",
+      "--ink-on-dark-2": "color",
+      "--gold-hi": "color",
+      "--gold": "color",
+      "--gold-deep": "color",
+      "--gold-shadow": "shadow",
+      "--grad-gold": "other",
+      "--grad-gold-rim": "other",
+      "--crystal-lo": "color",
+      "--crystal": "color",
+      "--crystal-hi": "color",
+      "--crystal-glow": "color",
+      "--grad-crystal": "other",
+      "--indigo-deep": "color",
+      "--indigo": "color",
+      "--indigo-soft": "color",
+      "--indigo-info": "color",
+      "--win": "color",
+      "--loss": "color",
+      "--warn": "color",
+      "--info": "color",
+      "--star-on": "color",
+      "--star-off": "color",
+      "--tier-bronze-1": "color",
+      "--tier-bronze-2": "color",
+      "--tier-silver-1": "color",
+      "--tier-silver-2": "color",
+      "--tier-gold-1": "color",
+      "--tier-gold-2": "color",
+      "--tier-plat-1": "color",
+      "--tier-plat-2": "color",
+      "--tier-diamond-1": "color",
+      "--tier-diamond-2": "color",
+      "--tier-master-1": "color",
+      "--tier-master-2": "color",
+      "--tier-grand-1": "color",
+      "--tier-grand-2": "color",
+      "--tier-champ-1": "color",
+      "--tier-champ-2": "color",
+      "--r-xs": "spacing",
+      "--r-sm": "spacing",
+      "--r-md": "spacing",
+      "--r-lg": "spacing",
+      "--r-xl": "spacing",
+      "--r-pill": "spacing",
+      "--s-1": "spacing",
+      "--s-2": "spacing",
+      "--s-3": "spacing",
+      "--s-4": "spacing",
+      "--s-5": "spacing",
+      "--s-6": "spacing",
+      "--s-8": "spacing",
+      "--s-10": "spacing",
+      "--s-12": "spacing",
+      "--sh-soft": "shadow",
+      "--sh-card": "shadow",
+      "--sh-float": "shadow",
+      "--sh-inset": "spacing",
+      "--sh-gold": "shadow",
+      "--glow-crystal": "shadow",
+      "--font-display": "font",
+      "--font-ui": "font"
+    },
+    "fontFamilies": [
+      "Mali"
+    ]
+  }
+}

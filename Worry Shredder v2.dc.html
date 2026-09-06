@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="_ds/aether-arena-design-system-0515a043-3a76-4da4-9d25-24d2dc4e88e7/colors_and_type.css">
+<script src="_ds/aether-arena-design-system-0515a043-3a76-4da4-9d25-24d2dc4e88e7/_ds_bundle.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+html,body{margin:0;padding:0}
+body{background:#e6f1ef;font-family:'Prompt',system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:#0ab5a6;text-decoration:none}
+a:hover{color:#089b8f}
+*{box-sizing:border-box}
+::placeholder{color:#b6d2ce;opacity:1}
+@keyframes mfIn{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+@keyframes mfFade{from{opacity:0}to{opacity:1}}
+@keyframes mfOut{0%,82%{opacity:1}100%{opacity:0}}
+@keyframes mfFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+@keyframes mfRise{0%{transform:translateY(120px) scale(.6);opacity:0}12%{opacity:.95}72%{opacity:.95}100%{transform:translateY(-780px) scale(1.05);opacity:0}}
+@keyframes mfSway{0%,100%{margin-left:-10px}50%{margin-left:10px}}
+@keyframes mfPop{0%{opacity:0;transform:scale(.82)}64%{transform:scale(1.04)}100%{opacity:1;transform:scale(1)}}
+</style>
+</helmet>
+
+<div style="min-height:100dvh;display:flex;justify-content:center;background:#e6f1ef">
+<div style="width:100%;max-width:430px;min-height:100dvh;display:flex;flex-direction:column;position:relative;overflow:hidden;background:linear-gradient(180deg,#dcedea 0%,#e2f0ed 34%,#eef4f4 68%,#f6f7f8 100%);box-shadow:0 18px 44px rgba(60,110,105,.14)">
+
+<header style="position:relative;z-index:3;display:flex;align-items:center;justify-content:space-between;padding:20px 24px 0">
+<img src="assets/brand-logo.png" alt="mindfull" style="height:30px;width:auto;display:block">
+<img src="assets/bubble.png" alt="" style="width:38px;height:38px;display:block;opacity:.85;animation:mfFloat 6s ease-in-out infinite">
+</header>
+
+<sc-if value="{{ isInput }}" hint-placeholder-val="{{ true }}">
+<main style="flex:1;display:flex;flex-direction:column;padding:0 24px 26px;animation:mfIn .55s cubic-bezier(.22,.61,.36,1) both">
+
+<div style="margin:4px -14px 6px;animation:mfFloat 7s ease-in-out infinite">
+<img src="assets/mooca-trio-soft.png" alt="Mooca ในฟองอากาศ" style="width:100%;height:auto;display:block">
+</div>
+
+<h1 style="margin:0 0 8px;font-size:29px;line-height:1.3;font-weight:600;color:#17bfae;letter-spacing:-.01em">พื้นที่ทิ้งความกังวล</h1>
+<p style="margin:0 0 18px;font-size:14.5px;line-height:1.65;color:#89b9b4;text-wrap:pretty">มีเรื่องอะไรให้คิดมาก พิมพ์ทิ้งไว้ได้เลยนะ เดี๋ยว Mooca จัดการให้เอง</p>
+
+<div style="background:#ffffff;border-radius:20px;box-shadow:0 6px 20px rgba(60,110,105,.08);padding:4px">
+<label for="mf-worry" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">เรื่องที่อยากทิ้ง</label>
+<textarea id="mf-worry" value="{{ draft }}" onChange="{{ onDraft }}" rows="5" placeholder="วันนี้มีเรื่องอะไรที่อยากทิ้งไปบ้าง..." aria-describedby="mf-help" style="width:100%;display:block;border:none;outline:none;resize:none;background:transparent;font-family:inherit;font-size:15.5px;line-height:1.7;color:#3b5c58;padding:16px 18px 4px;min-height:150px"></textarea>
+<div style="display:flex;align-items:center;justify-content:space-between;padding:0 18px 12px">
+<span id="mf-help" style="font-size:11.5px;font-weight:600;color:#b6d2ce">ไม่มีการบันทึกข้อความนี้ไว้ที่ไหน</span>
+<span style="font-size:11.5px;font-weight:700;color:#c6ddd9;font-variant-numeric:tabular-nums">{{ countLabel }}</span>
+</div>
+</div>
+
+<div style="flex:1;min-height:18px"></div>
+
+<button type="button" onClick="{{ onSend }}" disabled="{{ notReady }}" aria-disabled="{{ notReady }}" style="{{ ctaStyle }}" style-active="transform:scale(.975)">ย่อยความกังวล</button>
+</main>
+</sc-if>
+
+<sc-if value="{{ isSending }}" hint-placeholder-val="{{ false }}">
+<main style="flex:1;position:relative;display:flex;flex-direction:column;align-items:center;justify-content:space-between;padding:26px 24px 40px;animation:mfOut 2.8s ease-in both">
+
+<p role="status" aria-live="polite" style="position:relative;z-index:2;margin:0;font-size:15px;font-weight:700;color:#17bfae">ปล่อยมันไปนะ...</p>
+
+<div style="position:absolute;inset:0;overflow:hidden;pointer-events:none">
+<sc-for list="{{ bubbles }}" as="b" hint-placeholder-count="9">
+<div style="position:absolute;left:{{ b.left }};bottom:-90px;width:{{ b.size }};animation:mfRise {{ b.dur }} cubic-bezier(.36,.06,.6,.62) {{ b.delay }} both">
+<img src="assets/bubble.png" alt="" style="width:100%;height:auto;display:block;animation:mfSway {{ b.sway }} ease-in-out infinite">
+</div>
+</sc-for>
+</div>
+
+<p style="position:relative;z-index:2;margin:0;font-size:15px;font-weight:700;color:#17bfae">ปล่อยมันไปนะ...</p>
+</main>
+</sc-if>
+
+<sc-if value="{{ isDone }}" hint-placeholder-val="{{ false }}">
+<main style="flex:1;display:flex;flex-direction:column;align-items:center;padding:0 24px 30px;animation:mfFade .6s ease-out both">
+
+<div style="width:100%;max-width:320px;margin:22px 0 2px;animation:mfPop .6s cubic-bezier(.22,.61,.36,1) both">
+<img src="assets/mooca-hero-soft.png" alt="Mooca ยิ้ม" style="width:100%;height:auto;display:block;animation:mfFloat 6.5s ease-in-out infinite">
+</div>
+
+<h1 style="margin:0 0 12px;text-align:center;font-size:29px;font-weight:600;color:#17bfae">เก่งมากเลย!</h1>
+<p style="margin:0;max-width:330px;text-align:center;font-size:14.5px;line-height:1.7;color:#89b9b4;text-wrap:pretty">บางครั้งการได้ระบายออกมาก็ช่วยให้ใจเบาลงได้นะ พักสายตาสักนิด แล้วค่อยไปต่อกัน</p>
+
+<div style="display:flex;align-items:center;gap:9px;margin-top:20px;padding:8px 18px 8px 10px;border-radius:999px;background:rgba(255,255,255,.75);box-shadow:0 4px 14px rgba(60,110,105,.07)">
+<img src="assets/bubble.png" alt="" style="width:24px;height:24px;display:block">
+<span style="font-size:13px;font-weight:700;color:#3fb9ae">ฟองที่ {{ sessionCount }} ของวันนี้</span>
+</div>
+
+<div style="flex:1;min-height:30px"></div>
+
+<div style="width:100%;display:flex;flex-direction:column;gap:12px">
+<button type="button" onClick="{{ onReset }}" style="width:100%;border:none;cursor:pointer;font-family:inherit;font-size:16px;font-weight:600;color:#fff;padding:18px 20px;border-radius:999px;background:#0ec1b0;box-shadow:0 10px 24px rgba(14,193,176,.28);transition:transform .18s cubic-bezier(.22,.61,.36,1),box-shadow .18s" style-hover="transform:translateY(-2px);box-shadow:0 14px 28px rgba(14,193,176,.34)" style-active="transform:scale(.975)">ย่อยความกังวลอีกครั้ง</button>
+<button type="button" onClick="{{ onOoca }}" style="width:100%;cursor:pointer;font-family:inherit;font-size:16px;font-weight:600;color:#0ec1b0;padding:17px 20px;border-radius:999px;background:#fff;border:1.5px solid #0ec1b0;transition:background .18s" style-hover="background:#f0fbfa" style-active="transform:scale(.975)">ค้นหาผู้รับฟังจาก Ooca</button>
+</div>
+
+<sc-if value="{{ toast }}" hint-placeholder-val="{{ false }}">
+<p role="status" style="margin:12px 0 0;text-align:center;font-size:12px;font-weight:600;color:#a5c9c5;animation:mfFade .3s ease-out both">ตัวอย่างลิงก์ — เวอร์ชันจริงจะพาไปหน้านักฟังของ Ooca</p>
+</sc-if>
+</main>
+</sc-if>
+
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:430,&quot;height&quot;:900},&quot;accent&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;default&quot;:&quot;#0ec1b0&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;options&quot;:[&quot;#0ec1b0&quot;,&quot;#12b0c7&quot;,&quot;#3fb98a&quot;,&quot;#2f7f8c&quot;],&quot;section&quot;:&quot;Theme&quot;},&quot;riseMs&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:2800,&quot;min&quot;:1500,&quot;max&quot;:5000,&quot;step&quot;:100,&quot;unit&quot;:&quot;ms&quot;,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Behavior&quot;}}">
+const BUBBLES = [
+  { left: '14%', size: '112px', dur: '2.8s', delay: '0s',    sway: '3.1s' },
+  { left: '52%', size: '134px', dur: '2.8s', delay: '.12s',  sway: '3.6s' },
+  { left: '6%',  size: '86px',  dur: '2.8s', delay: '.34s',  sway: '2.8s' },
+  { left: '36%', size: '96px',  dur: '2.8s', delay: '.5s',   sway: '3.3s' },
+  { left: '70%', size: '78px',  dur: '2.8s', delay: '.62s',  sway: '2.9s' },
+  { left: '18%', size: '58px',  dur: '2.8s', delay: '.8s',   sway: '2.6s' },
+  { left: '78%', size: '46px',  dur: '2.8s', delay: '.95s',  sway: '2.4s' },
+  { left: '46%', size: '40px',  dur: '2.8s', delay: '1.12s', sway: '2.2s' },
+  { left: '60%', size: '28px',  dur: '2.8s', delay: '1.3s',  sway: '2s'   }
+];
+
+class Component extends DCLogic {
+  state = { phase: 'input', draft: '', toast: false, sessions: 0 };
+
+  componentWillUnmount() { clearTimeout(this._t); }
+
+  send = () => {
+    if (!this.state.draft.trim()) return;
+    this.setState({ phase: 'sending' });
+    clearTimeout(this._t);
+    this._t = setTimeout(
+      () => this.setState(s => ({ phase: 'done', sessions: s.sessions + 1 })),
+      this.props.riseMs ?? 2800
+    );
+  };
+
+  reset = () => {
+    clearTimeout(this._t);
+    this.setState({ phase: 'input', draft: '', toast: false });
+  };
+
+  renderVals() {
+    const { phase, draft, toast, sessions } = this.state;
+    const ready = draft.trim().length > 0;
+    const accent = this.props.accent ?? '#0ec1b0';
+    return {
+      draft,
+      toast,
+      bubbles: BUBBLES,
+      sessionCount: Math.max(1, sessions),
+      countLabel: draft.length ? draft.length + ' ตัวอักษร' : '',
+      isInput: phase === 'input',
+      isSending: phase === 'sending',
+      isDone: phase === 'done',
+      notReady: !ready,
+      ctaStyle: 'width:100%;border:none;font-family:inherit;font-size:16.5px;font-weight:600;padding:19px 20px;border-radius:999px;transition:transform .18s cubic-bezier(.22,.61,.36,1),box-shadow .18s;' + (ready
+        ? 'cursor:pointer;color:#fff;background:' + accent + ';box-shadow:0 12px 26px rgba(14,193,176,.30)'
+        : 'cursor:not-allowed;color:#bcdcd8;background:#ffffff;box-shadow:0 6px 18px rgba(60,110,105,.07)'),
+      onDraft: e => this.setState({ draft: e.target.value }),
+      onSend: this.send,
+      onReset: this.reset,
+      onOoca: () => this.setState({ toast: true })
+    };
+  }
+}
+</script>
+</body>
+</html>

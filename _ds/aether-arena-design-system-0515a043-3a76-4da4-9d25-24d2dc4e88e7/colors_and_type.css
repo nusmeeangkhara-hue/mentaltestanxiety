@@ -1,0 +1,144 @@
+/* ---- Self-hosted brand UI font (uploaded) ----
+   Mali (Cadson Demak) — cozy rounded Thai+Latin face. Only the
+   SemiBold weight was supplied; declared across 400–800 so the
+   browser uses it for every UI weight (heavier weights synthesize). */
+@font-face{
+  font-family:'Mali';
+  src:url('fonts/Mali-SemiBold.ttf') format('truetype');
+  font-weight:400 800;
+  font-style:normal;
+  font-display:swap;
+}
+
+/* ============================================================
+   AETHER ARENA — Design Tokens
+   Bright, cozy, elegant fantasy game UI.
+   Palette: soft sky-blue, white, cream, gold, light purple.
+   Fonts:
+     • Cinzel — engraved fantasy serif (rank names, season titles, BATTLE).
+       CDN substitution (no source file supplied — see README).
+     • Mali — cozy rounded UI/body sans. SELF-HOSTED brand font
+       (fonts/Mali-SemiBold.ttf), wired via @font-face below.
+   Load Cinzel in <head>:
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+   ============================================================ */
+
+:root {
+  /* ---------- SKY / BACKGROUND ---------- */
+  --sky-top:      #5b80c0;   /* periwinkle crown */
+  --sky-upper:    #7fa0d6;
+  --sky-mid:      #a8c1e7;
+  --sky-glow:     #eef4fc;   /* cathedral light, screen center */
+  --sky-bottom:   #d3ddef;
+  --sky-haze:     #c4d4ee;
+
+  /* full-screen background gradient (mobile + widescreen) */
+  --bg-sky: radial-gradient(120% 90% at 50% 38%, var(--sky-glow) 0%, #dbe6f7 34%, var(--sky-mid) 66%, var(--sky-upper) 100%);
+
+  /* ---------- SURFACES ---------- */
+  --surface:        #ffffff;   /* primary panel */
+  --surface-2:      #f7f9fd;   /* inset / secondary */
+  --surface-tint:   #eef3fb;   /* soft blue fill */
+  --surface-cream:  #fbf4e6;   /* warm ivory alt panel (kit peach) */
+  --row-highlight:  #e7eefb;   /* "my rank" row */
+  --hairline:       #eaeef6;   /* dividers, 1px */
+  --hairline-strong:#dde4f0;
+
+  /* ---------- INK / TEXT ---------- */
+  --ink-1: #2b2f56;   /* headings, deep indigo */
+  --ink-2: #5a6385;   /* body / secondary */
+  --ink-3: #9aa3c0;   /* muted / meta */
+  --ink-on-gold:  #6a4a12;  /* text sitting on gold */
+  --ink-on-dark:  #f3f6ff;  /* text on indigo / dark panels */
+  --ink-on-dark-2:#b9c4e6;
+
+  /* ---------- GOLD (primary CTA + frames) ---------- */
+  --gold-hi:    #f8e8b6;
+  --gold:       #e7be62;
+  --gold-deep:  #c08f2e;
+  --gold-shadow:#9a6c1d;
+  --grad-gold:  linear-gradient(180deg, #f6e2a8 0%, #e7be62 46%, #cf9d3c 100%);
+  --grad-gold-rim: linear-gradient(180deg, #fff3cf 0%, #b9831f 100%);
+
+  /* ---------- PURPLE / CRYSTAL (emblem, magic) ---------- */
+  --crystal-lo:  #6b46c1;
+  --crystal:     #8b5cf0;
+  --crystal-hi:  #b794f4;
+  --crystal-glow:#d9c6fb;
+  --grad-crystal:linear-gradient(160deg, #c8aef8 0%, #8b5cf0 52%, #6b46c1 100%);
+
+  /* ---------- DEEP INDIGO (dark panels / left rail accents) ---------- */
+  --indigo-deep: #232a52;
+  --indigo:      #2c3566;
+  --indigo-soft: #3a4a86;
+  --indigo-info: #4b6aa3;
+
+  /* ---------- SEMANTIC ---------- */
+  --win:  #46a47b;   /* victory / positive */
+  --loss: #e06a62;   /* defeat / negative */
+  --warn: #e8a23c;
+  --info: #4b8de0;
+  --star-on:  #f3c145;  /* earned star */
+  --star-off: #cdd5e6;  /* empty star */
+
+  /* ---------- TIER COLORS (rank divisions) ---------- */
+  --tier-bronze-1:#d89b63; --tier-bronze-2:#a4652f;
+  --tier-silver-1:#d4dde9; --tier-silver-2:#94a1b6;
+  --tier-gold-1:  #f4d076; --tier-gold-2:  #c9982f;
+  --tier-plat-1:  #a7e7ee; --tier-plat-2:  #4ba7b6;
+  --tier-diamond-1:#aaccf7; --tier-diamond-2:#5887db;
+  --tier-master-1:#c9aef6; --tier-master-2:#8255d8;
+  --tier-grand-1: #f4a6c4; --tier-grand-2: #d44e84;
+  --tier-champ-1: #ffe08a; --tier-champ-2: #e7a23a;
+
+  /* ---------- RADII ---------- */
+  --r-xs: 8px;
+  --r-sm: 12px;
+  --r-md: 18px;
+  --r-lg: 24px;
+  --r-xl: 32px;
+  --r-pill: 999px;
+
+  /* ---------- SPACING (4px base) ---------- */
+  --s-1: 4px;  --s-2: 8px;  --s-3: 12px; --s-4: 16px;
+  --s-5: 20px; --s-6: 24px; --s-8: 32px; --s-10: 40px; --s-12: 48px;
+
+  /* ---------- SHADOWS (soft, cool-tinted) ---------- */
+  --sh-soft:  0 4px 14px rgba(60,84,150,.12);
+  --sh-card:  0 12px 30px rgba(48,70,140,.14);
+  --sh-float: 0 18px 44px rgba(44,64,130,.20);
+  --sh-inset: inset 0 1px 0 rgba(255,255,255,.7);
+  --sh-gold:  0 8px 20px rgba(190,140,40,.40);
+  --glow-crystal: 0 0 32px rgba(139,92,240,.45);
+
+  /* ---------- TYPE FAMILIES ---------- */
+  --font-display: 'Cinzel', 'Trajan Pro', Georgia, serif;
+  --font-ui: 'Mali', system-ui, -apple-system, 'Segoe UI', sans-serif;
+}
+
+/* ============================================================
+   TYPE SCALE — desktop / widescreen baseline.
+   Display = Cinzel (engraved caps). UI/body = Nunito.
+   ============================================================ */
+.t-season    { font-family: var(--font-ui); font-weight:700; font-size:15px; letter-spacing:.32em; text-transform:uppercase; color: var(--ink-2); }
+.t-title     { font-family: var(--font-display); font-weight:800; font-size:46px; letter-spacing:.06em; text-transform:uppercase; color: var(--ink-1); line-height:1.02; }
+.t-rank      { font-family: var(--font-display); font-weight:800; font-size:40px; letter-spacing:.10em; text-transform:uppercase; color: var(--ink-1); }
+.t-h1        { font-family: var(--font-display); font-weight:700; font-size:30px; letter-spacing:.04em; color: var(--ink-1); }
+.t-h2        { font-family: var(--font-ui); font-weight:800; font-size:22px; color: var(--ink-1); }
+.t-label     { font-family: var(--font-ui); font-weight:800; font-size:13px; letter-spacing:.14em; text-transform:uppercase; color: var(--ink-3); }
+.t-tab       { font-family: var(--font-ui); font-weight:800; font-size:15px; letter-spacing:.06em; }
+.t-name      { font-family: var(--font-ui); font-weight:800; font-size:18px; color: var(--ink-1); }
+.t-body      { font-family: var(--font-ui); font-weight:600; font-size:15px; color: var(--ink-2); line-height:1.5; }
+.t-meta      { font-family: var(--font-ui); font-weight:700; font-size:13px; color: var(--ink-3); }
+.t-num       { font-family: var(--font-ui); font-weight:900; font-size:22px; color: var(--ink-1); font-variant-numeric: tabular-nums; }
+.t-num-big   { font-family: var(--font-ui); font-weight:900; font-size:34px; color: var(--ink-1); font-variant-numeric: tabular-nums; }
+.t-cta       { font-family: var(--font-display); font-weight:800; font-size:26px; letter-spacing:.10em; text-transform:uppercase; }
+
+/* gold engraved title treatment */
+.gold-text {
+  background: linear-gradient(180deg, #f4d98a 0%, #e0b258 48%, #b9842b 100%);
+  -webkit-background-clip: text; background-clip: text;
+  color: transparent;
+  text-shadow: 0 1px 0 rgba(255,255,255,.35);
+}
